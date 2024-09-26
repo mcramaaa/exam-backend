@@ -6,15 +6,14 @@ import {
   BeforeUpdate,
   Column,
   Entity,
-  PrimaryGeneratedColumn,
+  OneToMany,
+  PrimaryColumn,
 } from 'typeorm';
+import { ExamAnswers } from './exam-answer.entity';
 
 @Entity()
 export class Participants extends EntityHelper {
-  @PrimaryGeneratedColumn()
-  number: number;
-
-  @Column()
+  @PrimaryColumn()
   id: string;
 
   @Column()
@@ -24,7 +23,7 @@ export class Participants extends EntityHelper {
   birth: string;
 
   @Column('simple-array', { nullable: true })
-  exam: string;
+  exam_package: string[];
 
   @Column({ unique: true })
   email: string;
@@ -44,10 +43,8 @@ export class Participants extends EntityHelper {
     }
   }
 
-  // @OneToMany(() => ExamPackage, (examPackage) => examPackage.id, {
-  //   nullable: true,
-  // })
-  // exam_Package: ExamPackage;
+  @OneToMany(() => ExamAnswers, (examAnswers) => examAnswers.id)
+  examAnswers: ExamAnswers[];
 
   @Column(() => AuditTrail, { prefix: false })
   audit_trail: AuditTrail;

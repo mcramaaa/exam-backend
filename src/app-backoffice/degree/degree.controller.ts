@@ -30,7 +30,6 @@ export class DegreeController {
   @Post()
   @HttpCode(HttpStatus.CREATED)
   create(@Body() createDegreeDto: CreateDegreeDto): Promise<void> {
-    console.log(createDegreeDto);
     return this.degreeService.create(createDegreeDto);
   }
 

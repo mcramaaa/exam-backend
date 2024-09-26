@@ -18,6 +18,7 @@ export class ParticipantSeedService {
         this.repository.create({
           id: '101010',
           name: 'Bejo',
+          exam_package: ['1', '2'],
           birth: '10-07-2000',
           email: 'bejo@exam.com',
           password: 'qweqweqwe',

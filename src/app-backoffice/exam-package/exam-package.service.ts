@@ -44,7 +44,6 @@ export class ExamPackageService {
   }
 
   async findOne(id: number) {
-    console.log(id);
     const data = await this.examPackageRepo.findOne({
       relations: { exam: true },
       where: { id: id },
@@ -53,9 +52,7 @@ export class ExamPackageService {
   }
 
   async create(payload: CreateExamPackageDto): Promise<ExamPackage> {
-    console.log(payload);
     const exam = await this.examService.findOne(payload.exam_id);
-    console.log(exam);
 
     if (!exam) {
       throw new NotFoundException('Cant find a exam');

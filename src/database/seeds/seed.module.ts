@@ -8,6 +8,9 @@ import { TypeOrmConfigService } from '../typeorm-config.service';
 
 import { AdminSeedModule } from './admin/admin-seed.module';
 import { ParticipantSeedModule } from './participants/participants-seed.module';
+import { ExamSeedModule } from './exam/exam-seed.module';
+import { ExamPackageSeedModule } from './exam-package/exam-pack-seed.module';
+import { QuestionSeedModule } from './questions/questions-seed.module';
 
 @Module({
   imports: [
@@ -24,6 +27,9 @@ import { ParticipantSeedModule } from './participants/participants-seed.module';
     }),
     AdminSeedModule,
     ParticipantSeedModule,
+    ExamSeedModule,
+    ExamPackageSeedModule,
+    QuestionSeedModule,
   ],
 })
 export class SeedModule {}

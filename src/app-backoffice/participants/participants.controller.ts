@@ -48,7 +48,6 @@ export class ParticipantsController {
     @Query('email') email: string,
     @Query('birth') birth: string,
   ): Promise<PaginationResultType<Participants>> {
-    console.log(page, limit, id, name, email, birth);
     const [data, count] = await this.participantsService.findManyWithPagination(
       {
         page,
@@ -75,7 +74,6 @@ export class ParticipantsController {
   @HttpCode(HttpStatus.CREATED)
   @ApiBody({ type: [CreateParticipantDto] })
   create(@Body() data: CreateParticipantDto[]) {
-    console.log(data);
     return this.participantsService.create(data);
   }
 

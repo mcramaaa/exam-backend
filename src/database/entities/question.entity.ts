@@ -1,6 +1,7 @@
 import { AuditTrail, EntityHelper } from 'src/shared/utils/entity-helper';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { ExamPackage } from './exam-package.entity';
+import { Exclude } from 'class-transformer';
 
 @Entity()
 export class Questions extends EntityHelper {
@@ -10,10 +11,11 @@ export class Questions extends EntityHelper {
   @Column()
   question: string;
 
-  @Column()
+  @Column({ nullable: true })
   options: string;
 
   @Column()
+  @Exclude({ toPlainOnly: true })
   answer: string;
 
   @Column()
@@ -25,15 +27,13 @@ export class Questions extends EntityHelper {
   @Column()
   onFalse: number;
 
-  @Column()
+  @Column({ nullable: true })
   img: string;
 
   @Column()
   type: string;
 
-  @ManyToOne(() => ExamPackage, (examPackage) => examPackage.id, {
-    nullable: true,
-  })
+  @ManyToOne(() => ExamPackage, (examPackage) => examPackage.id)
   exam_Package: ExamPackage;
 
   @Column(() => AuditTrail, { prefix: false })

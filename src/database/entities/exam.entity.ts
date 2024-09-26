@@ -11,6 +11,12 @@ export class Exam extends EntityHelper {
   name: string;
 
   @Column()
+  description: string;
+
+  @Column()
+  rule: string;
+
+  @Column()
   isActive: boolean;
 
   @Column()
@@ -31,7 +37,7 @@ export class Exam extends EntityHelper {
   @Column()
   end: string;
 
-  @OneToMany(() => ExamPackage, (examPackage) => examPackage.exam)
+  @OneToMany(() => ExamPackage, (examPackage) => examPackage.id)
   exam: Exam[];
 
   @Column(() => AuditTrail, { prefix: false })

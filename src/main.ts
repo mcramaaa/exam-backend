@@ -8,6 +8,7 @@ import { BackofficeModules } from './app-backoffice/module';
 import { AppModule } from './app/app.module';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'path';
+import { UserModules } from './app-user/module';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -61,28 +62,28 @@ async function bootstrap() {
     },
   );
 
-  // // User Swagger
-  // SwaggerModule.setup(
-  //   'docs/user',
-  //   app,
-  //   SwaggerModule.createDocument(
-  //     app,
-  //     new DocumentBuilder()
-  //       .setTitle('API User')
-  //       .setDescription('API User docs')
-  //       .setVersion('1.0')
-  //       .addBearerAuth()
-  //       .build(),
-  //     {
-  //       include: UserCLientModules,
-  //     },
-  //   ),
-  //   {
-  //     swaggerOptions: {
-  //       persistAuthorization: true,
-  //     },
-  //   },
-  // );
+  // User Swagger
+  SwaggerModule.setup(
+    'docs/user',
+    app,
+    SwaggerModule.createDocument(
+      app,
+      new DocumentBuilder()
+        .setTitle('API User')
+        .setDescription('API User docs')
+        .setVersion('1.0')
+        .addBearerAuth()
+        .build(),
+      {
+        include: UserModules,
+      },
+    ),
+    {
+      swaggerOptions: {
+        persistAuthorization: true,
+      },
+    },
+  );
 
   // const swaggerConfig = new DocumentBuilder()
   //   .setTitle('API Backoffice')

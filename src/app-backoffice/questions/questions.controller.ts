@@ -34,7 +34,7 @@ import { Questions } from 'src/database/entities/question.entity';
 @ApiBearerAuth()
 @UseGuards(AuthAdminGuard)
 @Controller({
-  path: 'question',
+  path: 'backoffice/question',
   version: '1',
 })
 export class QuestionsController {
@@ -78,8 +78,6 @@ export class QuestionsController {
     @UploadedFiles() files: { imgs?: Express.Multer.File[] },
   ) {
     const data = JSON.parse(questions); // Parse 'questions' menjadi objek JavaScript
-    console.log(data);
-    console.log(files);
     return await this.questionsService.create(data, files.imgs);
   }
 
@@ -96,7 +94,6 @@ export class QuestionsController {
   //   @Body('questions') questions: string,
   //   @UploadedFiles() files: { imgs?: Express.Multer.File[] },
   // ) {
-  //   console.log(files);
   //   const data = JSON.parse(questions);
   //   return await this.questionsService.create(data, files.imgs);
   // }

@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsEmail, IsNotEmpty } from 'class-validator';
+import { IsArray, IsEmail, IsNotEmpty, IsString } from 'class-validator';
 
 export class CreateParticipantDto {
   @ApiProperty({ example: '1' })
@@ -14,9 +14,11 @@ export class CreateParticipantDto {
   @IsNotEmpty()
   birth: string;
 
-  @ApiProperty({ example: 'qweqweqwe' })
+  @ApiProperty({ example: [1, 2] })
   @IsNotEmpty()
-  exam_package: string;
+  @IsArray()
+  @IsString({ each: true })
+  exam_package: string[];
 
   @ApiProperty({ example: 'bejo@exam.com' })
   @IsNotEmpty()

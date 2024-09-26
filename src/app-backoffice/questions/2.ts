@@ -33,8 +33,6 @@
 //   }
 
 //   async create(payload: CreateQuestionDto[], imgs: Express.Multer.File[]) {
-//     console.log('payload', payload);
-//     console.log('imgs', imgs);
 //     const createdQuestions = [];
 //     const imgMap = new Map();
 //     if (imgs) {
@@ -47,8 +45,6 @@
 //       ...questionDto,
 //       options: `${JSON.parse(questionDto.options.replace(/'/g, '"'))}`,
 //     }));
-
-//     console.log(processedData);
 
 //     for (const questionDto of processedData) {
 //       const examPackage = await this.examPackageRepository.findOne({
@@ -77,7 +73,6 @@
 //         },
 //       });
 
-//       console.log('this', question);
 //       createdQuestions.push(question);
 //     }
 
@@ -94,8 +89,6 @@
 // }
 
 // async create(payload: CreateQuestionDto[], imgs: Express.Multer.File[]) {
-//   console.log('payload', payload);
-//   console.log('imgs', imgs);
 //   const createdQuestions = [];
 //   const imgMap = new Map();
 //   if (imgs) {
@@ -108,8 +101,6 @@
 //     ...questionDto,
 //     options: `${JSON.parse(questionDto.options.replace(/'/g, '"'))}`,
 //   }));
-
-//   console.log(processedData);
 
 //   for (const questionDto of processedData) {
 //     const examPackage = await this.examPackageRepository.findOne({
@@ -138,7 +129,6 @@
 //       },
 //     });
 
-//     console.log('this', question);
 //     createdQuestions.push(question);
 //   }
 

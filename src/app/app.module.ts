@@ -14,6 +14,7 @@ import { AppCacheModule } from 'src/core/cache/cache.module';
 import { AuthModule } from 'src/auth/auth.module';
 import { AllConfigType } from 'src/shared/types/config.type';
 import { CacheModule } from '@nestjs/cache-manager';
+import { UserModules } from 'src/app-user/module';
 
 @Module({
   imports: [
@@ -46,6 +47,7 @@ import { CacheModule } from '@nestjs/cache-manager';
     AuthModule,
     AppCacheModule,
     ...BackofficeModules,
+    ...UserModules,
   ],
   controllers: [AppController],
   providers: [AppService],

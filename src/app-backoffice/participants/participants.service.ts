@@ -26,7 +26,6 @@ export class ParticipantsService {
       return this.participantsRepository.create(participantData);
     });
 
-    console.log(participants);
     return await this.participantsRepository.save(participants);
   }
 
@@ -57,11 +56,9 @@ export class ParticipantsService {
   }
 
   async update(id: string, payload: UpdateParticipantDto) {
-    console.log(payload);
     const participant = await this.findOne({
       id: id,
     });
-    console.log(participant);
 
     if (!participant) {
       throw new NotFoundException('Cant find participant');

@@ -1,12 +1,7 @@
 import { AuditTrail, EntityHelper } from 'src/shared/utils/entity-helper';
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Participants } from './participants.entity';
+import { ExamPackage } from './exam-package.entity';
 
 @Entity()
 export class ExamAnswers extends EntityHelper {
@@ -19,12 +14,14 @@ export class ExamAnswers extends EntityHelper {
   @Column()
   value: number;
 
-  @Column()
-  log: number;
+  @Column('text')
+  log: string;
 
-  @ManyToOne(() => Participants, (participants) => participants.id)
-  @JoinColumn()
-  participant: Participants[];
+  @ManyToOne(() => Participants, (participant) => participant.id)
+  participant: Participants;
+
+  @ManyToOne(() => ExamPackage, (examPackage) => examPackage.id)
+  exam_package: ExamPackage;
 
   @Column(() => AuditTrail, { prefix: false })
   audit_trail: AuditTrail;

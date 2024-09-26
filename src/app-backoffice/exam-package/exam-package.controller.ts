@@ -26,7 +26,7 @@ import { ExamPackage } from 'src/database/entities/exam-package.entity';
 @ApiBearerAuth()
 @UseGuards(AuthAdminGuard)
 @Controller({
-  path: 'exam-package',
+  path: 'backoffice/exam-package',
   version: '1',
 })
 export class ExamPackageController {

@@ -18,7 +18,6 @@ export class DegreeService {
   ) {}
 
   async create(createDegreeDto: CreateDegreeDto): Promise<void> {
-    console.log(createDegreeDto);
     try {
       await this.repository.save(this.repository.create(createDegreeDto));
     } catch (error) {

@@ -6,6 +6,14 @@ export class CreateExamDto {
   @IsNotEmpty()
   name: string;
 
+  @ApiProperty({ example: '' })
+  @IsNotEmpty()
+  description: string;
+
+  @ApiProperty({ example: '' })
+  // @IsNotEmpty()
+  rule: string;
+
   @ApiProperty({ example: false })
   @IsNotEmpty()
   isActive: boolean;
